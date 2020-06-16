@@ -1,0 +1,21 @@
+CREATE TABLE s
+(sNo VARCHAR(5) NOT NULL PRIMARY KEY,
+ sName 		VARCHAR(16),
+ sStatus 		int, 
+ sCity 			VARCHAR(16)
+);
+
+CREATE TABLE p
+(pNo 		VARCHAR(5) NOT NULL PRIMARY KEY,
+ pName  	VARCHAR(16),
+ pColor 	VARCHAR(8),
+ pWeight	INT CHECK (pWeight>=0)
+);
+
+CREATE TABLE sp
+(sNo VARCHAR(5) NOT NULL REFERENCES s,
+ pNo VARCHAR(5) NOT NULL REFERENCES p,
+ qty INT CHECK (qty >= 0),
+ PRIMARY KEY (sno, pno)
+);
+
